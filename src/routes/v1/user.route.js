@@ -1,21 +1,21 @@
 
 const router = require('express').Router(); // import express router
 
-const userControler = require('../../controller/user.controler'); // import user controller 
+const {userController} = require('../../controller/'); // import user controller 
 
-const schemas = require('../../validations/validation')           // import schemas validation
+const {userValidation} = require('../../validations') // import schemas validation
 
-const validateSchema = require('../../middleware/validator.middleware') // import vlidator middleware
+const { validatorMiddleWare } = require('../../middleware') // import validator middleware
 
-router.get('/', userControler.getUsers)  // invoke users List
+router.get('/', userController.getUsers)  // invoke users List
 
-.get('/:userId', userControler.getUserById)  // invoke One user 
+.get('/:userId', userController.getUserById)  // invoke One user 
 
-.post('/' ,validateSchema(schemas.userSchema),userControler.createUser) // create user
+.post('/' ,validatorMiddleWare(userValidation.userSchema),userController.createUser) // create user
 
-.put('/',validateSchema(schemas.userEditSchema),userControler.editUser) // edit user
+.put('/',validatorMiddleWare(userValidation.userEditSchema),userController.editUser) // edit user
 
-.delete('/:userId',userControler.deleteUser) // delete user
+.delete('/:userId',userController.deleteUser) // delete user
 
 module.exports= router
 

@@ -1,5 +1,5 @@
 const status = require('http-status');
-const response = require('../config/response.config');
+const ApiError = require('../payload/apiError');
 
 const logger = require('../config/logger');
 const validate = (schema)=> (req,res,nex) =>{
@@ -7,12 +7,12 @@ const validate = (schema)=> (req,res,nex) =>{
     let {value,error} = schema.validate(req.body);    
 
     if (error) {
-        let massage = error.details[0].message;
-        logger.error(response(status.BAD_REQUEST,massage))
+        let message = error.details[0].message;
 
-      return  res.status(status.BAD_REQUEST).send(
-        response(status.BAD_REQUEST,massage)
-      )
+        let response = new ApiError(status.BAD_REQUEST,message,'','')
+        logger.error(response) // api error log
+
+      return  res.status(status.BAD_REQUEST).send(response)
     }
 
     nex()

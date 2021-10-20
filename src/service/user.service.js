@@ -1,5 +1,5 @@
 
-const userModel = require('../model/user.model'); // import user model
+const {userModel} = require('../model'); // import user model
 
 // get users 
 const getUsers =()=> userModel.getUsers()  // get users list from the model
