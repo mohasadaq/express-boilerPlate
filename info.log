@@ -38,3 +38,28 @@
 2021-10-20T10:54:38.353Z [User Mangement!] info: successfuly get data
 2021-10-20T10:57:06.568Z [User Mangement!] info: successfuly created new user
 2021-10-20T10:57:12.787Z [User Mangement!] info: successfuly get data
+2021-10-20T14:35:08.841Z [User Mangement!] info: successfuly get data
+2021-10-20T14:51:59.881Z [User Mangement!] info: successfuly get data
+2021-10-20T14:56:25.868Z [User Mangement!] info: successfuly created new user
+2021-10-20T14:57:11.000Z [User Mangement!] error: [object Object]
+2021-10-20T14:57:34.534Z [User Mangement!] error: [object Object]
+2021-10-20T14:57:49.546Z [User Mangement!] error: [object Object]
+2021-10-21T09:35:48.887Z [User Mangement!] error: "email" must be a valid email
+2021-10-21T09:36:17.855Z [User Mangement!] error: "password" length must be at least 8 characters long
+2021-10-21T09:49:05.109Z [User Mangement!] error: "password" length must be less than or equal to 10 characters long
+2021-10-23T10:39:31.655Z [User Mangement!] info: successfuly get data
+2021-10-23T10:42:37.878Z [User Mangement!] info: successfuly get data
+2021-10-23T10:57:49.011Z [User Mangement!] info: successfuly get data
+2021-10-23T11:00:27.165Z [User Mangement!] info: successfuly get data
+2021-10-23T11:01:02.389Z [User Mangement!] info: successfuly get data
+2021-10-23T11:01:18.465Z [User Mangement!] info: successfuly get data
+2021-10-23T11:01:51.312Z [User Mangement!] info: successfuly get data
+2021-10-23T11:04:13.173Z [User Mangement!] info: successfuly get data
+2021-10-23T11:05:06.886Z [User Mangement!] info: successfuly get data
+2021-10-23T11:06:05.992Z [User Mangement!] info: successfuly get data
+2021-10-23T11:06:17.560Z [User Mangement!] error: "email" is required
+2021-10-25T05:38:56.330Z [User Mangement!] info: successfuly get data
+2021-10-25T05:39:15.760Z [User Mangement!] info: successfuly get data
+2021-10-25T05:39:34.139Z [User Mangement!] info: successfuly get data
+2021-10-25T05:40:43.958Z [User Mangement!] info: successfuly get data
+2021-10-25T05:40:55.394Z [User Mangement!] info: successfuly get data

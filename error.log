@@ -5,3 +5,10 @@
 2021-10-16T15:49:38.963Z [User Mangement!] error: id not exists the user to delete it
 2021-10-16T15:50:25.433Z [User Mangement!] error: id not exists the user to delete it
 2021-10-20T10:52:04.415Z [User Mangement!] error: [object Object]
+2021-10-20T14:57:11.000Z [User Mangement!] error: [object Object]
+2021-10-20T14:57:34.534Z [User Mangement!] error: [object Object]
+2021-10-20T14:57:49.546Z [User Mangement!] error: [object Object]
+2021-10-21T09:35:48.887Z [User Mangement!] error: "email" must be a valid email
+2021-10-21T09:36:17.855Z [User Mangement!] error: "password" length must be at least 8 characters long
+2021-10-21T09:49:05.109Z [User Mangement!] error: "password" length must be less than or equal to 10 characters long
+2021-10-23T11:06:17.560Z [User Mangement!] error: "email" is required

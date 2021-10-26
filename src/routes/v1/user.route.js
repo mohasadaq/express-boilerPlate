@@ -7,13 +7,15 @@ const {userValidation} = require('../../validations') // import schemas validati
 
 const { validatorMiddleWare } = require('../../middleware') // import validator middleware
 
-router.get('/', userController.getUsers)  // invoke users List
+const {authMiddleware}  = require('../../middleware')
 
-.get('/:userId', userController.getUserById)  // invoke One user 
+router.get('/', authMiddleware , userController.getUsers)  // invoke users List
 
-.post('/' ,validatorMiddleWare(userValidation.userSchema),userController.createUser) // create user
+.get('/:userId',authMiddleware, userController.getUserById)  // invoke One user 
 
-.put('/',validatorMiddleWare(userValidation.userEditSchema),userController.editUser) // edit user
+.post('/' , authMiddleware, validatorMiddleWare(userValidation.userSchema),userController.createUser) // create user
+
+.put('/',authMiddleware, validatorMiddleWare(userValidation.userEditSchema),userController.editUser) // edit user
 
 .delete('/:userId',userController.deleteUser) // delete user
 

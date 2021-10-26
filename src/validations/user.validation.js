@@ -6,7 +6,7 @@ const userSchema = joi.object({
     "firstName" : joi.string().required().max(10),
     "lastName" : joi.string().optional().max(10),
     "age" : joi.number().required().max(120).min(12),
-    "username" : joi.string().required().max(10),
+    "email" : joi.string().email().required(),
     "password" : joi.string().alphanum().required().max(10).min(8),
 })
 

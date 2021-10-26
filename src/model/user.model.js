@@ -4,7 +4,7 @@ let users = [{
     "firstName" : "ali",
     "lastName" : "ahmed",
     "age" : 20,
-    "username" : "user1",
+    "email" : "moha99@gmail.com",
     "password" : "password12",
 }]
 
@@ -16,7 +16,6 @@ const getUser = id => users.filter(user=>user.id==id); // get on user
 
 // create user
 const createUser = user => users.push(user); // add new user
-
 
 // update user
 const updateUser = (user)=>{
@@ -38,11 +37,17 @@ const deleteUser = (id)=>{
     users.splice(objIndex,1);  // romeve from array 
 }
 
+// check user login
+const isEmailAndPasswordExist = (email,password) => users.filter(user=> 
+    user.email==email && user.password==password);  
+
+
 module.exports=
 {
     getUsers,
     getUser,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    isEmailAndPasswordExist
 }

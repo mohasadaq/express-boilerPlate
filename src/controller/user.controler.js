@@ -52,7 +52,7 @@ const editUser = (req,res)=>{
     }else{                                     
         response = new ApiResponse(res.statusCode,"successfuly updated the user",
          userService.updateUser(req.body))  // prepare response
-        logger.info(response)                // log as info 
+         logger.info(response)                // log as info 
         res.send(response)                   // resturn the response
     }    
 }
