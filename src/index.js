@@ -2,7 +2,18 @@ const express = require('express'); // import express
 
 const path = require('path');
 
-require('dotenv').config({path: path.resolve(__dirname, `${process.env.NODE_ENV}.env`)})  // import enviroment checker
+const cors = require('cors')
+
+var corsOptions = {
+  origin: "http://localhost:8000"
+};
+
+const app = express()
+
+app.use(cors(corsOptions));
+
+require('dotenv').config(
+  {path: path.resolve(__dirname, `${process.env.NODE_ENV || 'production'}.env`)})   // import enviroment checker
 
 const route = require('./routes/v1'); // import router 
 
@@ -11,7 +22,6 @@ const morganMiddleware = require('./middleware/morgan.middleware');
 const httpStatus = require('http-status'); // import status
 const ApiError = require('./payload/apiError'); 
 
-const app = express()
 app.use(express.json()) // convert requset body to json format 
 
 app.use(morganMiddleware)
