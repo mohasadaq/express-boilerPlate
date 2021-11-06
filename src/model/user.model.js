@@ -1,46 +1,40 @@
-// get users list
-let users = [{
-    "id": 1,
-    "firstName" : "ali",
-    "lastName" : "ahmed",
-    "age" : 20,
-    "email" : "moha99@gmail.com",
-    "password" : "password12",
-}]
+const {getConnection} = require('../config/database')
 
 // get users
-const getUsers = ()=> users; // return all users
+const getUsers = async()=> {
+    return await getConnection("select *from users") // return all users
+}                       
 
 // get user
-const getUser = id => users.filter(user=>user.id==id); // get on user
+const getUser = async(id) => {
+    return await getConnection(`select *from users where id=${id}`) // return all users
+}
 
 // create user
-const createUser = user => users.push(user); // add new user
+const createUser = async(user) => {
+    let query = `insert into users(id,firstname,lastname,age,email,password,role)
+    VALUES(AUTOINCREMENT.nextval,'${user.firstName}','${user.lastName}','${user.age}',
+    '${user.email}','${user.password}','${user.role}')`;
 
+   return await getConnection(query)
+}
 // update user
-const updateUser = (user)=>{
-
-    let objIndex = users.findIndex((obj => obj.id == user.id)) // get user index
- 
-    let firstName = users[objIndex].firstName = user.firstName // firstname assign to variable
-
-    let lastName = users[objIndex].lastName = user.lastName // lastname assign to a variable
-    let password = users[objIndex].password = user.password // password assign to a variable
-
-    users.map(x => (x.id === user.id ? { ...x, firstName,lastName,password } : x));
-    return users;
+const updateUser = async(user)=>{
+    let query = `update users set firstname='${user.firstName}',password='${user.password}' where 
+    id=${user.id}`;
+   return await getConnection(query)
 }
 
 // delete user
-const deleteUser = (id)=>{
-    let objIndex = users.findIndex((obj => obj.id == id)) // get index of user
-    users.splice(objIndex,1);  // romeve from array 
+const deleteUser = async(id)=>{
+    let query = `delete users where id=${id}`;
+    return await getConnection(query)
 }
 
 // check user login
-const isEmailAndPasswordExist = (email,password) => users.filter(user=> 
-    user.email==email && user.password==password);  
-
+const isEmailAndPasswordExist = async(email,password) => {
+       return await getConnection(`select *from users where email='${email}' and password='${password}'`) 
+    }
 
 module.exports=
 {

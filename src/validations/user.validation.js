@@ -2,12 +2,12 @@ const joi = require('joi'); // import joi
 
 // user schema 
 const userSchema = joi.object({
-    "id": joi.number().min(1).required(),
     "firstName" : joi.string().required().max(10),
     "lastName" : joi.string().optional().max(10),
     "age" : joi.number().required().max(120).min(12),
     "email" : joi.string().email().required(),
     "password" : joi.string().alphanum().required().max(10).min(8),
+    "role" : joi.string().required().max(10).min(4),
 })
 
 // user edit schema

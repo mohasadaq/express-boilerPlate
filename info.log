@@ -63,3 +63,115 @@
 2021-10-25T05:39:34.139Z [User Mangement!] info: successfuly get data
 2021-10-25T05:40:43.958Z [User Mangement!] info: successfuly get data
 2021-10-25T05:40:55.394Z [User Mangement!] info: successfuly get data
+2021-10-27T08:38:48.677Z [User Mangement!] error: "email" is required
+2021-10-27T08:39:43.860Z [User Mangement!] error: "password" length must be less than or equal to 10 characters long
+2021-10-27T10:42:39.597Z [User Mangement!] info: successfuly get data
+2021-10-27T10:46:49.220Z [User Mangement!] info: successfuly get data
+2021-10-27T11:05:14.687Z [User Mangement!] info: successfuly get data
+2021-10-27T11:14:29.096Z [User Mangement!] info: successfuly get data
+2021-10-27T11:15:46.324Z [User Mangement!] info: successfuly get data
+2021-10-27T11:20:32.191Z [User Mangement!] info: successfuly get data
+2021-10-27T11:22:41.069Z [User Mangement!] info: successfuly get data
+2021-10-27T11:25:45.868Z [User Mangement!] info: successfuly get data
+2021-10-27T11:27:43.553Z [User Mangement!] info: successfuly get data
+2021-10-27T11:28:53.897Z [User Mangement!] info: successfuly get data
+2021-10-27T11:32:09.379Z [User Mangement!] info: successfuly get data
+2021-10-27T11:33:08.530Z [User Mangement!] info: successfuly get data
+2021-10-27T11:33:45.048Z [User Mangement!] info: successfuly get data
+2021-10-27T11:34:20.379Z [User Mangement!] info: successfuly get data
+2021-10-27T11:35:53.519Z [User Mangement!] info: successfuly get data
+2021-10-27T11:52:13.464Z [User Mangement!] info: successfuly get data
+2021-10-27T12:12:16.462Z [User Mangement!] info: successfuly get data
+2021-10-27T12:13:24.206Z [User Mangement!] info: successfuly get data
+2021-10-28T08:38:42.501Z [User Mangement!] error: id not exists the user to delete it
+2021-10-28T08:46:41.255Z [User Mangement!] error: "email" is required
+2021-10-28T10:55:48.658Z [User Mangement!] info: successfuly get data
+2021-10-28T10:58:22.311Z [User Mangement!] error: "id" is required
+2021-10-28T10:59:12.256Z [User Mangement!] info: successfuly get data
+2021-10-28T10:59:48.245Z [User Mangement!] info: successfuly get data
+2021-10-30T14:22:21.163Z [User Mangement!] info: successfuly get data
+2021-11-02T11:15:56.280Z [User Mangement!] info: successfuly get data
+2021-11-02T11:17:31.191Z [User Mangement!] info: successfuly get data
+2021-11-02T11:18:01.854Z [User Mangement!] info: successfuly get data
+2021-11-02T11:18:39.192Z [User Mangement!] info: successfuly get data
+2021-11-02T11:19:05.609Z [User Mangement!] info: successfuly get data
+2021-11-02T11:19:52.686Z [User Mangement!] info: successfuly get data
+2021-11-02T11:20:29.404Z [User Mangement!] info: successfuly get data
+2021-11-02T11:21:46.670Z [User Mangement!] info: successfuly get data
+2021-11-02T11:22:17.247Z [User Mangement!] info: successfuly get data
+2021-11-02T11:26:56.917Z [User Mangement!] info: successfuly get data
+2021-11-02T11:27:04.904Z [User Mangement!] info: successfuly get data
+2021-11-02T11:27:48.605Z [User Mangement!] info: successfuly get data
+2021-11-02T11:29:21.835Z [User Mangement!] info: successfuly get data
+2021-11-02T11:29:50.709Z [User Mangement!] info: successfuly get data
+2021-11-02T11:30:19.277Z [User Mangement!] info: successfuly get data
+2021-11-02T11:36:22.672Z [User Mangement!] info: successfuly get data
+2021-11-02T11:36:31.550Z [User Mangement!] info: successfuly get data
+2021-11-02T11:36:34.238Z [User Mangement!] info: successfuly get data
+2021-11-02T11:37:43.524Z [User Mangement!] info: successfuly get data
+2021-11-02T11:38:04.397Z [User Mangement!] info: successfuly get data
+2021-11-02T11:38:37.494Z [User Mangement!] info: successfuly get data
+2021-11-02T11:38:40.333Z [User Mangement!] info: successfuly get data
+2021-11-02T11:40:39.778Z [User Mangement!] info: successfuly get data
+2021-11-02T11:41:57.638Z [User Mangement!] info: successfuly get data
+2021-11-02T11:42:18.968Z [User Mangement!] info: successfuly get data
+2021-11-02T11:44:05.579Z [User Mangement!] info: successfuly get data
+2021-11-02T11:44:53.737Z [User Mangement!] info: successfuly get data
+2021-11-02T11:45:28.748Z [User Mangement!] info: successfuly get data
+2021-11-02T11:46:08.037Z [User Mangement!] info: successfuly get data
+2021-11-02T12:03:55.432Z [User Mangement!] info: successfuly get data
+2021-11-02T12:04:52.225Z [User Mangement!] info: successfuly get data
+2021-11-02T12:04:56.429Z [User Mangement!] info: successfuly get data
+2021-11-02T12:08:50.024Z [User Mangement!] info: successfuly get data
+2021-11-02T12:08:54.988Z [User Mangement!] info: successfuly get data
+2021-11-02T12:09:17.126Z [User Mangement!] info: successfuly get data
+2021-11-02T12:09:20.341Z [User Mangement!] info: successfuly get data
+2021-11-02T12:10:09.279Z [User Mangement!] info: successfuly get data
+2021-11-03T05:08:20.057Z [User Mangement!] info: successfuly get data
+2021-11-03T05:08:29.301Z [User Mangement!] info: successfuly get data
+2021-11-03T05:09:49.775Z [User Mangement!] info: successfuly get data
+2021-11-03T06:29:34.328Z [User Mangement!] info: successfuly get data
+2021-11-03T06:32:47.947Z [User Mangement!] info: successfuly get data
+2021-11-03T06:33:51.010Z [User Mangement!] info: successfuly get data
+2021-11-03T07:05:03.498Z [User Mangement!] info: successfuly get data
+2021-11-03T07:08:01.501Z [User Mangement!] info: successfuly get data
+2021-11-03T07:13:33.842Z [User Mangement!] info: successfuly get data
+2021-11-03T07:14:44.480Z [User Mangement!] info: successfuly get data
+2021-11-03T07:15:02.493Z [User Mangement!] info: successfuly get data
+2021-11-03T07:26:29.720Z [User Mangement!] info: successfuly get data
+2021-11-03T11:41:53.607Z [User Mangement!] info: successfuly get data
+2021-11-04T07:34:57.415Z [User Mangement!] error: "password" must only contain alpha-numeric characters
+2021-11-06T06:15:21.406Z [User Mangement!] info: successfuly get data
+2021-11-06T06:16:31.743Z [User Mangement!] info: successfuly get data
+2021-11-06T06:20:02.552Z [User Mangement!] info: successfuly get data
+2021-11-06T06:20:31.586Z [User Mangement!] info: successfuly get data
+2021-11-06T06:23:19.694Z [User Mangement!] info: successfuly get data
+2021-11-06T06:23:32.786Z [User Mangement!] info: successfuly get data
+2021-11-06T06:41:44.723Z [User Mangement!] error: "id" is required
+2021-11-06T06:42:36.582Z [User Mangement!] error: "firstName" is required
+2021-11-06T06:43:32.839Z [User Mangement!] error: "role" length must be at least 5 characters long
+2021-11-06T06:44:29.965Z [User Mangement!] info: successfuly created new user
+2021-11-06T06:45:15.033Z [User Mangement!] info: successfuly get data
+2021-11-06T06:46:44.979Z [User Mangement!] info: successfuly created new user
+2021-11-06T06:51:10.956Z [User Mangement!] info: successfuly created new user
+2021-11-06T06:53:30.183Z [User Mangement!] info: successfuly created new user
+2021-11-06T06:55:49.782Z [User Mangement!] info: successfuly created new user
+2021-11-06T06:59:11.300Z [User Mangement!] info: successfuly created new user
+2021-11-06T07:00:28.984Z [User Mangement!] info: successfuly get data
+2021-11-06T07:03:55.378Z [User Mangement!] info: successfuly created new user
+2021-11-06T07:05:15.264Z [User Mangement!] info: successfuly created new user
+2021-11-06T07:05:28.953Z [User Mangement!] info: successfuly get data
+2021-11-06T07:26:34.801Z [User Mangement!] info: successfuly updated the user
+2021-11-06T07:47:04.787Z [User Mangement!] info: successfuly deleted the user
+2021-11-06T08:04:28.450Z [User Mangement!] info: successfuly deleted the user
+2021-11-06T08:06:32.038Z [User Mangement!] info: successfuly deleted the user
+2021-11-06T08:15:38.004Z [User Mangement!] info: successfuly created new user
+2021-11-06T08:15:51.951Z [User Mangement!] info: successfuly get data
+2021-11-06T08:17:03.058Z [User Mangement!] info: successfuly updated the user
+2021-11-06T08:19:28.856Z [User Mangement!] info: successfuly get data
+2021-11-06T08:19:54.363Z [User Mangement!] info: successfuly deleted the user
+2021-11-06T08:20:07.674Z [User Mangement!] info: successfuly get data
+2021-11-06T08:31:45.719Z [User Mangement!] info: successfuly created new user
+2021-11-06T08:31:57.221Z [User Mangement!] info: successfuly get data
+2021-11-06T08:32:12.149Z [User Mangement!] info: successfuly get one user
+2021-11-06T11:36:25.880Z [User Mangement!] info: successfuly get data

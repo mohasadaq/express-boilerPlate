@@ -1,5 +1,5 @@
 const status = require('http-status');
-const ApiError = require('../payload/apiError');
+const ApiError = require('../payload/ApiError');
 
 const logger = require('../config/logger');
 const validate = (schema)=> (req,res,nex) =>{
