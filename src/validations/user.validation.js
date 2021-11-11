@@ -1,24 +1,17 @@
-const joi = require('joi'); // import joi
+const joi = require("joi"); // import joi
 
-// user schema 
+// user schema
 const userSchema = joi.object({
-    "firstName" : joi.string().required().max(10),
-    "lastName" : joi.string().optional().max(10),
-    "age" : joi.number().required().max(120).min(12),
-    "email" : joi.string().email().required(),
-    "password" : joi.string().alphanum().required().max(10).min(8),
-    "role" : joi.string().required().max(10).min(4),
-})
+  fullName: joi.string().required().max(10),
+  email: joi.string().email().required(),
+  password: joi.string().alphanum().required().max(10).min(8),
+});
 
 // user edit schema
 const userEditSchema = joi.object({
-    "id" : joi.number().required(),
-    "firstName" : joi.string().required().max(10),
-    "lastName" : joi.string().optional().max(10),
-    "password" : joi.string().alphanum().optional().max(10).min(8)
-})
+  id: joi.number().required(),
+  fullName: joi.string().required().max(10),
+  password: joi.string().alphanum().optional().max(10).min(8)
+});
 
-module.exports = {
-    userSchema,
-    userEditSchema
-}
+module.exports = { userSchema, userEditSchema };

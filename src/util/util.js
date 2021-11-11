@@ -1,28 +1,26 @@
-
 const handleAsync = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch((err) => next(err));
 };
 
 const parseDatabaseObject = (data) => {
-  let coloums = data.metaData;
+  let columns = data.metaData;
   let rows = data.rows;
   let arr = [];
 
-if(data.rows){
-  rows.map((row, i) => {
-    var obj = {};
-    coloums.map((column, index) => obj[column.name.toLowerCase()] = row[index])
-    arr.push(obj);
-   });
+  if (data.rows) {
+    rows.map((row, i) => {
+      var obj = {};
+      columns.map(
+        (column, index) => (obj[column.name.toLowerCase()] = row[index])
+      );
+      arr.push(obj);
+    });
 
-   return arr;
-}
+    return arr;
+  }
   return data.rowsAffected;
 };
 
 // parseDatabaseObject();
 
-module.exports = {
-  parseDatabaseObject,
-  handleAsync,
-};
+module.exports = { parseDatabaseObject, handleAsync };

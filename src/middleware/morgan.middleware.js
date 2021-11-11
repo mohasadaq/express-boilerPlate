@@ -1,9 +1,8 @@
-const morgan = require('morgan');
-const fs = require('fs');
-const path = require('path');
+const morgan = require("morgan");
+const fs = require("fs");
+const path = require("path");
 
-var logStream = fs.createWriteStream(path.join(__dirname,"../morgan.log")) // prepare stream and write for it
+const logStream = fs.createWriteStream(path.join(__dirname, "../morgan.log")); // prepare stream and write for it
+const morganMiddleware = morgan("combined", { stream: logStream }); // use log stream variable
 
-const morganMiddleware = morgan('combined',{stream : logStream})  // use log stream variable
-
-module.exports= morganMiddleware
+module.exports = morganMiddleware;

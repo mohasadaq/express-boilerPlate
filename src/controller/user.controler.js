@@ -1,83 +1,84 @@
+const status = require("http-status"); // import http status
+const { userService } = require("../service"); // import user service
+const ApiError = require("../payload/ApiError"); // import api error
+const ApiResponse = require("../payload/ApiResponse"); // import api error
+const logger = require("../config/logger");
+const { handleAsync } = require("../util/util");
+let error, response;
 
-const status = require('http-status');       // import http status
-const {userService} = require('../service'); // import user service 
-
-const ApiError = require('../payload/ApiError'); // import api error 
-
-const ApiResponse = require('../payload/ApiResponse'); // import api error 
-
-let error,response;
-const logger = require('../config/logger');
-
-const {handleAsync} = require('../util/util')
-
+//#region get users
 // users List conroller
+const getUsers = handleAsync(async (req, res, next) => {
 
-const getUsers = handleAsync(async(req,res)=>{
-    let users = await userService.getUsers()
-    // let message = res.__('message')
-    response = new ApiResponse(res.statusCode,'successfuly get data',users)                                  // prepare response 
-    logger.info(response)                                     //  log as info
-    res.send(response)                                       // send response
-})
+  let users = await userService.getUsers();
+  let successmessage = res.__('message');
+  response = new ApiResponse(status.OK, successmessage, users); // prepare response
 
-// get user by id
-const getUserById = handleAsync(async(req,res)=>{
+  logger.info(response); //  log as info
+  res.status(status.OK).send(response)
+});
 
-    let user = await userService.getUser(req.params.userId)
-    if(user.length){
-        response = new ApiResponse(res.statusCode,'successfuly get one user',user) // prepare response
-    }else{
-        throw new ApiError(status.NOT_ACCEPTABLE,'Id not exists ..')
-    }
-    logger.info(response)                                     // log response
-    res.send(response)                                        // send the data to as response
-})
+//#endregion
 
-// user created 
-const createUser = handleAsync(async(req,res)=>{
-    let user = await userService.createUser(req.body);
-    if(user){
-        response = new ApiResponse(res.statusCode,"successfuly created new user")                      // prepare response
-    }
-    logger.info(response)                                     // log response as info
-    res.send(response)   
-})
+//#region get user by id
+const getUserById = handleAsync(async (req, res) => {
+  let user = await userService.getUser(req.params.userId);
+  if (user.length) {
+    response = new ApiResponse(
+      res.statusCode,
+      "successfuly get one user",
+      user
+    ); // prepare response
+  } else {
+    throw new ApiError(status.NOT_ACCEPTABLE, "Id not exists ..");
+  }
+  logger.info(response); // log response
+  res.status(status.OK).send(response) // send the data to as response
+});
+//#endregion
 
-// user updated 
-const editUser = handleAsync(async(req,res)=>{    
-    let user = await userService.updateUser(req.body);  
-    
-    if(user){
-        response = new ApiResponse(res.statusCode,"successfuly updated the user")  // prepare response
-    }
-    else{
-        throw new ApiError(status.NOT_ACCEPTABLE,'Id not exists ..')
-    }
-    logger.info(response)                // log as info 
-    res.send(response)                   // resturn the response
-       
-})
+//#region create user
+const createUser = handleAsync(async (req, res) => {
+  let user = await userService.createUser(req.body);
+  let message = res.__('registerSuccess')
+  if (user) {
+    response = new ApiResponse(status.OK, message); // prepare response
+  }
+  else{
+    message = res.__('registerError')
+    throw new ApiError(status.NOT_ACCEPTABLE,message)
+  }
+  logger.info(response); // log response as info
+  res.status(status.OK).send(response)
+});
+//#endregion
 
-// delete user ... 
-const deleteUser = handleAsync(async(req,res)=>{
-let user = await userService.deleteUser(req.params.userId)
-    if(user){
-        response  = new ApiResponse(res.statusCode,"successfuly deleted the user")
-    }else{
-        throw new ApiError(status.NOT_ACCEPTABLE,'Id not exists ..')
-    }
+//#region update user
+const editUser = handleAsync(async (req, res) => {
+  let user = await userService.updateUser(req.body);
 
-    logger.info(response)
-    res.send(response) 
-})
+  if (user) {
+    response = new ApiResponse(res.statusCode, "successfuly updated the user"); // prepare response
+  } else {
+    throw new ApiError(status.NOT_ACCEPTABLE, "Id not exists ..");
+  }
+  logger.info(response); // log as info
+  res.send(response); // resturn the response
+});
+//#endregion
 
-module.exports={
-    getUsers,
-    createUser,
-    getUserById,
-    editUser, 
-    deleteUser   
-}
+//#region delete user ...
+const deleteUser = handleAsync(async (req, res) => {
+  let user = await userService.deleteUser(req.params.userId);
+  if (user) {
+    response = new ApiResponse(res.statusCode, "successfuly deleted the user");
+  } else {
+    throw new ApiError(status.NOT_ACCEPTABLE, "Id not exists ..");
+  }
+  logger.info(response);
+  res.send(response);
+});
 
+//#endregion
 
+module.exports = { getUsers, createUser, getUserById, editUser, deleteUser };

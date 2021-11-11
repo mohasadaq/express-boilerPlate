@@ -1,47 +1,78 @@
-const {getConnection} = require('../config/database')
+const { getConnection } = require("../config/database");
 
-// get users
-const getUsers = async()=> {
-    return await getConnection("select *from users") // return all users
-}                       
+//#region get users
+const getUsers = async () => {
+  return await getConnection("select userid,fullname,active from users"); // return all users
+};
+//#endregion
 
-// get user
-const getUser = async(id) => {
-    return await getConnection(`select *from users where id=${id}`) // return all users
-}
+//#region get user
+const getUser = async (id) => {
+  return await getConnection(`select *from users where userid=:id`, [id]); // return all users
+};
+//#endregion
 
-// create user
-const createUser = async(user) => {
-    let query = `insert into users(id,firstname,lastname,age,email,password,role)
-    VALUES(AUTOINCREMENT.nextval,'${user.firstName}','${user.lastName}','${user.age}',
-    '${user.email}','${user.password}','${user.role}')`;
+//#region create user
+const createUser = async (user) => {
+  let res = await isEmailExists(user.email)
+  if (res) {
+    return false;
+  }
 
-   return await getConnection(query)
-}
-// update user
-const updateUser = async(user)=>{
-    let query = `update users set firstname='${user.firstName}',password='${user.password}' where 
-    id=${user.id}`;
-   return await getConnection(query)
-}
+  let query = `insert into users(userid,fullName,email,password,active)
+    VALUES(userseq.nextval,:fullName,:email,:password,:active)`;
+  return await getConnection(query, [
+    user.fullName,
+    user.email,
+    user.password,
+    0,
+  ]);
+};
+//#endregion
 
-// delete user
-const deleteUser = async(id)=>{
-    let query = `delete users where id=${id}`;
-    return await getConnection(query)
-}
+//#region update user
+const updateUser = async (user) => {
+  let query = `update users set fullname=':fullName',password=':password' where userid=:id`;
+  return await getConnection(query, [user.fullName, user.password, user.id]);
+};
+//#endregion
 
-// check user login
-const isEmailAndPasswordExist = async(email,password) => {
-       return await getConnection(`select *from users where email='${email}' and password='${password}'`) 
-    }
+//#region delete user
+const deleteUser = async (id) => {
+  let query = `delete users where userid=:id`;
+  return await getConnection(query, [id]);
+};
+//#endregion
 
-module.exports=
-{
-    getUsers,
-    getUser,
-    createUser,
-    updateUser,
-    deleteUser,
-    isEmailAndPasswordExist
-}
+//#region check user login
+const isEmailAndPasswordExist = async (email, password) => {
+  return await getConnection(
+    `SELECT U.USERID, U.FULLNAME, U.EMAIL, R.ROLENAME
+    FROM USERS U
+    INNER JOIN USERROLE UR on u.userid=UR.userid
+    INNER JOIN ROLES R on UR.ROLEID = R.ROLEID
+    WHERE EMAIL =:email
+    AND PASSWORD =:password
+    AND ACTIVE = 1`,
+    [email, password]
+  );
+};
+//#endregion
+
+//#region isEmailExists
+const isEmailExists = async (email) => {
+  let result = await getConnection(`select * from users where email=:email`, [email]);
+  if (result.length) {
+    return true;
+  }
+
+  return false;
+};
+module.exports = {
+  getUsers,
+  getUser,
+  createUser,
+  updateUser,
+  deleteUser,
+  isEmailAndPasswordExist,
+};

@@ -1,3 +1,6 @@
 {
-    "message": "successfuly"
-}
+    "loginSuccess": "You have been logged in %s",
+    "registerSuccess": "You have been registered. Please check your email to verify account",
+    "registerError": "Something went wrong with the registration please try again",
+    "updateError": "Something went wrong with the update please try again"
+  }

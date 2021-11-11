@@ -1,38 +1,35 @@
 const oracledb = require("oracledb");
 const util = require("../util/util");
-const user = "mohamedam";
-const password = "mohamedam";
-const host = "15.15.0.59:1521";
-const database = "students";
+const ApiError = require('../payload/ApiError')
+const user = 'hr'//"mohamedam";
+const password = 'hr'//"mohamedam";
+const host = 'localhost'//"15.15.0.59:1521";
+const database = "xe";
 
 oracledb.initOracleClient({
   libDir: "F:\\oracle-client\\instantclient_21_3",
-})
+});
 
-var connection, result
-const getConnection = async(query) => {
+let connection;
+const getConnection = async (query,params=[]) => {
   try {
-   connection = await oracledb.getConnection(
-      {
-        user: user,
+    
+    connection = await oracledb.getConnection({
+      user: user,
         password: password,
         connectString: host + "/" + database,
-      })
+      });
+      // console.log('connected');
+      let result = await connection.execute(query,params);
+      connection.commit();
+      return util.parseDatabaseObject(result);
 
-     result = await  connection.execute(query);  
-     connection.commit()
+  }catch (error) {
+    console.log(error);
+    throw new ApiError(523,error); 
+  }
+}
 
-    return util.parseDatabaseObject(result)
-
-  } catch (error) {
-    console.log(error); 
-  }  
- 
-};
-  
-const executeQuery = (result) => {
-  return result;
-};
 
 module.exports = {
   getConnection,
