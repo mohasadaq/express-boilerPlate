@@ -1,26 +1,26 @@
 const router = require("express").Router(); // import express router
 const { userController } = require("../../controller/"); // import user controller
 const { userValidation } = require("../../validations"); // import schemas validation
-const { validatorMiddleWare } = require("../../middleware"); // import validator middleware
-const { authMiddleware, authrizationMiddleware } = require("../../middleware");
+const { validator } = require("../../middleware"); // import validator middleware
+const { auth, authrization } = require("../../middleware");
 
 router
-  .get("/", authMiddleware, authrizationMiddleware('viewAllUsers'), userController.getUsers) // invoke users List
-  .get("/:userId", authMiddleware,authrizationMiddleware('viewUserById'), userController.getUserById) // invoke One user
+  .get("/", auth, authrization('viewAllUsers'), userController.getUsers) // invoke users List
+  .get("/:userId", auth,authrization('viewUserById'), userController.getUserById) // invoke One user
   .post(
     "/",
-    authMiddleware,
-    authrizationMiddleware('createUser'),
-    validatorMiddleWare(userValidation.userSchema),
+    auth,
+    authrization('createUser'),
+    validator(userValidation.userSchema),
     userController.createUser
   ) // create user
   .put(
     "/",
-    authMiddleware,
-    authrizationMiddleware('updateUser'),
-    validatorMiddleWare(userValidation.userEditSchema),
+    auth,
+    authrization('updateUser'),
+    validator(userValidation.userEditSchema),
     userController.editUser
   ) // edit user
-  .delete("/:userId", authMiddleware,authrizationMiddleware('deleteUser'), userController.deleteUser); // delete user
+  .delete("/:userId", auth,authrization('deleteUser'), userController.deleteUser); // delete user
 
 module.exports = router;

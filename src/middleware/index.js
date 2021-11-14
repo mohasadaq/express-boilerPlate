@@ -1,8 +1,8 @@
-const morganMiddleWare = require("./morgan.middleware");
+const morgan = require("./morgan.middleware");
 
-const validatorMiddleWare = require("./validator.middleware");
+const validator = require("./validator.middleware");
 
-const authMiddleware = require("./auth.middleware").auth;
-const authrizationMiddleware = require("./auth.middleware").authrization;
+const auth = require("./auth.middleware").auth;
+const authrization = require("./auth.middleware").authrization;
 
-module.exports = { morganMiddleWare, validatorMiddleWare, authMiddleware,authrizationMiddleware };
+module.exports = { morgan, validator, auth, authrization };

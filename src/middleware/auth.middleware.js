@@ -7,25 +7,19 @@ const { handleAsync } = require("../util/util");
 const NodeCache = require("node-cache");
 const myCache = new NodeCache();
 
-const authrization  = (apiName) => (req, res, next) => {
+const authrization = (apiName) => (req, res, next) => {
   try {
     let data = myCache.get("decodedToken");
     let userRole = data.payload.role;
-    let permissions = permissionService.getRolePermissions().then(res=>{
-      permissions = res.filter(
-        (permission) => (permission.rolename = userRole)
-      );
-      // let apiName = req.header("apiname");
-  
-      if (permissions.filter((p) => p.permissionname == apiName).length > 0) {
-        return next()
-      }
-     
-      next(new ApiError(401, "you can not access this endpoint")); 
-
-    })
-    .catch(err=> Promise.reject(err));
-
+    permissionService
+      .getRolePermissions(userRole)
+      .then((res) => {
+        if (res.filter((p) => p.permissionname == apiName).length > 0) {
+          return next();
+        }
+        next(new ApiError(401, "you can not access this endpoint"));
+      })
+      .catch((err) => Promise.reject(err));
   } catch (err) {
     console.log(err);
     throw new ApiError(401, "you can not access this endpoint");
@@ -41,12 +35,13 @@ const auth = (req, res, next) => {
   if (!token) {
     throw new ApiError(401, "your authentication is now expaired");
   }
+
   try {
     token = token.split(" ")[1];
     let response = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    var decoded = jwt.decode(token, { complete: true });
 
     if (response) {
+      var decoded = jwt.decode(token, { complete: true });
       myCache.set("decodedToken", decoded);
       next();
     }

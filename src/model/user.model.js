@@ -46,11 +46,12 @@ const deleteUser = async (id) => {
 
 //#region check user login
 const isEmailAndPasswordExist = async (email, password) => {
+  
   return await getConnection(
     `SELECT U.USERID, U.FULLNAME, U.EMAIL, R.ROLENAME
     FROM USERS U
-    INNER JOIN USERROLE UR on u.userid=UR.userid
-    INNER JOIN ROLES R on UR.ROLEID = R.ROLEID
+    left JOIN USERROLE UR on u.userid=UR.userid
+    left JOIN ROLES R on UR.ROLEID = R.ROLEID
     WHERE EMAIL =:email
     AND PASSWORD =:password
     AND ACTIVE = 1`,

@@ -3,20 +3,20 @@ const router = require("express").Router(); // import express router
 const { authController } = require("../../controller/"); // import user controller
 const { permissionController } = require("../../controller/"); // import permission controller
 const { authValidation } = require("../../validations"); // import schemas validation
-const { validatorMiddleWare } = require("../../middleware"); // import validator middleware
-const { authMiddleware, authrizationMiddleware } = require("../../middleware");
+const { validator } = require("../../middleware"); // import validator middleware
+const { auth, authrization } = require("../../middleware");
 
 
 router.post(
   "/",
-  validatorMiddleWare(authValidation.authSchema),
+  validator(authValidation.authSchema),
   authController.login
 ) // login
 
 .get(
   "/permission",
-  authMiddleware,
-  authrizationMiddleware,
+  auth,
+  authrization,
   permissionController.permissions
 ); // permission List
 
